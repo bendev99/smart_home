@@ -16,6 +16,7 @@ export const metadata: Metadata = {
   title: "Smart Home Control",
   description:
     "La plateforme pour controller tout vos appareils dans votre maison",
+  icons: "/led_on.png",
 };
 
 export default function RootLayout({

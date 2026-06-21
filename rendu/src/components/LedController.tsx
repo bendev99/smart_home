@@ -43,23 +43,31 @@ export default function LedController() {
     if (clientRef.current) {
       const command = ledOn ? "led_off" : "led_on";
       clientRef.current.publish(TOPIC_CMD, command);
-      // Optionnel : on peut anticiper le changement pour une UI plus réactive
-      // setLedOn(!ledOn);
     }
   };
 
   return (
-    <div className="flex flex-col w-full items-center justify-center gap-3">
+    <div className="flex flex-col items-center justify-center gap-3">
       <h2 className="text-2xl font-bold">Contrôle de la LED ESP32-S3</h2>
       <p className="text-xl font-semibold">
         État actuel : {ledOn ? "Allumée" : "Éteinte"}
       </p>
+
+      {ledOn ? (
+        <img src="/led_on.png" alt="LED ON" className="h-36 w-36" />
+      ) : (
+        <img src="/led_off.png" alt="LED OFF" className="h-36 w-36" />
+      )}
+
       <button
         onClick={toggleLed}
-        className="flex gap-2 items-center justify-center p-3 rounded-full bg-teal-800 w-[10%] shadow-lg shadow-teal-700/30 hover:bg-teal-700 hover:shadow-teal-700/40 cursor-pointer transition-all"
+        className={`flex w-[15%] gap-2 items-center justify-center text-md py-1 rounded-full shadow-lg shadow-teal-700/30 hover:shadow-teal-700/40 cursor-pointer transition-all ${ledOn && "bg-amber-500/10"}`}
       >
-        {ledOn ? "Éteindre" : "Allumer"}
-        {ledOn ? <BsToggle2On size={24} /> : <BsToggle2Off size={24} />}
+        {ledOn ? (
+          <BsToggle2On size={38} color="yellow" />
+        ) : (
+          <BsToggle2Off size={38} />
+        )}
       </button>
     </div>
   );
