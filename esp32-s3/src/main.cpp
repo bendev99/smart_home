@@ -9,15 +9,15 @@ const char* ssid = "@";
 const char* password = "12345678900";
 
 // ========== CONFIGURATION MQTT ==========
-const char* mqtt_server = "10.248.17.37";  // IP de votre PC
+const char* mqtt_server = "10.248.17.37";
 const int   mqtt_port   = 1883;
 const char* mqtt_client_id = "ESP32S3-IoT";
 
 // Topics
 const char* topic_led_cmd = "esp32/led/cmd";
 const char* topic_led_state = "esp32/led/state";
-const char* topic_dht = "esp32/dht";         // température/humidité
-const char* topic_distance = "esp32/distance"; // ultrason
+const char* topic_dht = "esp32/dht";
+const char* topic_distance = "esp32/distance";
 
 WiFiClient espClient;
 PubSubClient mqtt(espClient);
@@ -57,7 +57,9 @@ void readSonar() {
   digitalWrite(TRIG_PIN, HIGH);
   delayMicroseconds(10);
   digitalWrite(TRIG_PIN, LOW);
+
   long duration = pulseIn(ECHO_PIN, HIGH, 30000); // timeout 30 ms
+
   if (duration > 0) {
     distance = duration * 0.034 / 2; // cm
   } else {
