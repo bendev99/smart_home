@@ -1,0 +1,48 @@
+# ESP32
+/esp32/.pio
+/esp32/.vscode/.browse.c_cpp.db*
+/esp32/.vscode/c_cpp_properties.json
+/esp32/.vscode/launch.json
+/esp32/.vscode/ipch
+
+
+# RENDU
+# dependencies
+/rendu/node_modules
+/rendu/.pnp
+/rendu/.pnp.*
+/rendu/.yarn/*
+/rendu/!.yarn/patches
+/rendu/!.yarn/plugins
+/rendu/!.yarn/releases
+/rendu/!.yarn/versions
+
+# testing
+/rendu/coverage
+
+# next.js
+/rendu/.next/
+/rendu/out/
+
+# production
+/rendu/build
+
+# misc
+/rendu/.DS_Store
+/rendu/*.pem
+
+# debug
+/rendu/npm-debug.log*
+/rendu/yarn-debug.log*
+/rendu/yarn-error.log*
+/rendu/.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+/rendu/.env*
+
+# vercel
+/rendu/.vercel
+
+# typescript
+/rendu/*.tsbuildinfo
+/rendu/next-env.d.ts
